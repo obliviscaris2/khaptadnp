@@ -22,6 +22,22 @@
     <div class="card-body">
         <div>
             <div class="form-group">
+                <label for="gov_name">Government name</label>
+                <input  type="text" name="gov_name" class="form-control"
+                     placeholder="Place GOvernmnet Name">
+            </div>
+            <div class="form-group">
+                <label for="min_name">Ministry Name</label>
+                <input  type="text" name="min_name" class="form-control"
+                     placeholder="Place Ministry Name">
+            </div>
+            <div class="form-group">
+                <label for="dep_name">Department Name</label>
+                <input  type="text" name="dep_name" class="form-control"
+                     placeholder="Place Department Name">
+            </div>
+
+            <div class="form-group">
                 <label for="title">Title</label>
                 <input  type="text" name="title" class="form-control"
                      placeholder="Place Title">

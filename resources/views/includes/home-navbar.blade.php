@@ -13,16 +13,14 @@
   
         @endif
         <div class="nav-logo-container">
-            @foreach ($sitesettings as $sitesetting )
-                
-            @endforeach
+       
             <a href="{{ route('home') }}"><img class="nav-logo-img" src="{{ asset('uploads/sitesetting/' . $sitesetting->main_logo ?? "") }}" alt=""></a>
             <div>
-                <span class="green-color">Government of Nepal</span>
+                <span class="green-color">{{ $sitesetting->gov_name }}</span>
                 <br>
-                <span class="green-color">Ministry of Forests and Environment</span>
+                <span class="green-color">{{ $sitesetting->min_name }}</span>
                 <br>
-                <span class="green-color">Department of National Parks and Wildlife Conservation</span>
+                <span class="green-color">{{ $sitesetting->dep_name }}</span>
             </div>
         </div>
         

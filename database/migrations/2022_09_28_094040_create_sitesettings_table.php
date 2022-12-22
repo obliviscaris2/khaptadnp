@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('sitesettings', function (Blueprint $table) {
             $table->id();
+            $table->string('gov_name')->nullable();
+            $table->string('min_name')->nullable();
+            $table->string('dep_name')->nullable();
             $table->string('title');
             $table->bigInteger('phone');
             $table->string('address');
