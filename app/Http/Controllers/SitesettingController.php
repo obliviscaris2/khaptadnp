@@ -43,6 +43,9 @@ class SitesettingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'gov_name' => 'nullable|string',
+            'min_name' => 'nullable|string',
+            'dep_name' => 'nullable|string',
             'title' => "required",
             'phone' => "required",
             'email' => "required",
@@ -56,11 +59,11 @@ class SitesettingController extends Controller
             'google_maps' =>'nullable|url',
         ]);
 
-        $newMainLogo = time() . '_' . $request->main_logo->getClientOriginalName();
+        $newMainLogo = time() . '.' . $request->main_logo->getClientOriginalName();
         $request->main_logo->move(public_path('uploads/sitesetting/'), $newMainLogo);
 
         if($request->hasFile('side_logo')){
-            $newSideLogo = time().'_'.$request->side_logo->getClientOriginalName();
+            $newSideLogo = time().'.'.$request->side_logo->getClientOriginalName();
             $request->side_logo->move('uploads/sitesetting/', $newSideLogo);        
             }
             else{
@@ -68,6 +71,9 @@ class SitesettingController extends Controller
         }
 
         $sitesetting = new Sitesetting();
+        $sitesetting->gov_name = $request->gov_name;
+        $sitesetting->min_name = $request->min_name;
+        $sitesetting->dep_name = $request->dep_name;
         $sitesetting->title = $request->title;
         $sitesetting->phone = $request->phone;
         $sitesetting->email = $request->email;
@@ -101,7 +107,7 @@ class SitesettingController extends Controller
      * @param  \App\Models\Sitesetting  $sitesetting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sitesetting $sitesetting, $id)
+    public function edit($id='1')
     {
         $sitesetting = Sitesetting::find($id);
         return view('admin.sitesettings.update', [
@@ -120,9 +126,12 @@ class SitesettingController extends Controller
     public function update(Request $request, Sitesetting $sitesetting)
     {
         $request->validate([
-            'title' => "required",
-            'phone' => "required",
-            'email' => "required",
+            'gov_name' => 'nullable|string',
+            'min_name' => 'nullable|string',
+            'dep_name' => 'nullable|string',
+            'title' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
             'address' => "required",
             'fax' => "required",
             'main_logo'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:1536',
@@ -134,8 +143,11 @@ class SitesettingController extends Controller
 
         ]);
 
+
+        $sitesetting = Sitesetting::find($request->id);
+
         if ($request->hasFile('main_logo')) {
-            $newMainLogo = time() . '-' . $request->main_logo->extension();
+            $newMainLogo = time() . '.' . $request->main_logo->extension();
             $request->main_logo->move(public_path('uploads/sitesetting'), $newMainLogo );
             Storage::delete('uploads/sitesetting' . $sitesetting->main_logo);
             $sitesetting->main_logo = $newMainLogo;
@@ -145,7 +157,7 @@ class SitesettingController extends Controller
 
 
         if ($request->hasFile('side_logo')) {
-            $newSideLogo = time() . '-' . $request->side_logo->extension();
+            $newSideLogo = time() . '.' . $request->side_logo->extension();
             $request->side_logo->move(public_path('uploads/sitesetting'), $newSideLogo );
             Storage::delete('uploads/sitesetting' . $sitesetting->side_logo);
             $sitesetting->side_logo = $newSideLogo;
@@ -153,7 +165,9 @@ class SitesettingController extends Controller
             unset($request['side_logo']);
         }
 
-        $sitesetting = Sitesetting::find($request->id);
+        $sitesetting->gov_name = $request->gov_name ?? '';
+        $sitesetting->min_name = $request->min_name ?? '';
+        $sitesetting->dep_name = $request->dep_name ?? '';
         $sitesetting->title = $request->title;
         $sitesetting->phone = $request->phone;
         $sitesetting->email = $request->email;
@@ -163,8 +177,6 @@ class SitesettingController extends Controller
         $sitesetting->insta_link=$request->insta_link ?? '';
         $sitesetting->twitter=$request->twitter ?? '';
         $sitesetting->google_maps=$request->google_maps ?? '';
-
-
 
 
         $sitesetting->save();

@@ -81,8 +81,8 @@ Route::get("admin/categories/destroy/{id}", [CategoryController::class, 'destroy
 Route::get("admin/sitesettings/index", [SitesettingController::class, 'index'])->name('sitesettings.index');
 Route::get("admin/sitesettings/create", [SitesettingController::class, 'create'])->name('sitesettings.create');
 Route::post("admin/sitesettings/store", [SitesettingController::class, 'store'])->name('sitesettings.store');
-Route::post("admin/sitesettings/update", [SitesettingController::class, 'update'])->name('sitesettings.update');
 Route::get("admin/sitesettings/edit/{id}", [SitesettingController::class, 'edit'])->name('sitesettings.edit');
+Route::post("admin/sitesettings/update", [SitesettingController::class, 'update'])->name('sitesettings.update');
 Route::get("admin/sitesettings/destroy/{id}", [SitesettingController::class, 'destroy'])->name('sitesettings.destroy');
 
 

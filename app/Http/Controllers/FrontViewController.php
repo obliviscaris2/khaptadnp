@@ -20,6 +20,7 @@ class FrontViewController extends Controller
 {
     public function index(){
 
+        $sitesetting = Sitesetting::first();
         $categories = Category::latest()->get()->take(10);
         $coverimages = CoverImage::latest()->get()->take(5);
         $photogallerys = Gallery::latest()->get()->take(6);
@@ -34,7 +35,7 @@ class FrontViewController extends Controller
         $news = News::latest()->get()->take(3);
         $abouts = About::latest()->get()->take(1);
         $services = Service::latest()->get()->take(6);
-        $sitesetting = Sitesetting::first();
+           
         $teams = Team::first()->get()->take(2);
         $reports= Report::latest()->get()->take(6);
         $programs = Program::latest()->get()->take(5);

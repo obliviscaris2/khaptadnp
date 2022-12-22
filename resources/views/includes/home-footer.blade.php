@@ -275,7 +275,7 @@ ul {
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="cta-text">
                             <h4>Find us</h4>
-                            <span>29°16′12″N 80°59′24″E</span>
+                            <span>{{ $sitesetting->address }}</span>
                         </div>
                     </div>
                 </div>
@@ -284,10 +284,9 @@ ul {
                         <i class="fas fa-phone"></i>
                         <div class="cta-text">
                         <h4>Call us</h4>
-                        @foreach ($sitesettings as $sitesetting )
-                        <span>0{{ $sitesetting->phone }}</span>
-                        @endforeach
-                        
+                
+                        <span>{{ $sitesetting->phone }}</span>
+                       
                     </div>
                 </div>
             </div>
@@ -296,9 +295,9 @@ ul {
                     <i class="far fa-envelope-open"></i>
                     <div class="cta-text">
                         <h4>Mail us</h4>
-                        @foreach ($sitesettings as $sitesetting )
+                        
                         <span>{{ $sitesetting->email }}</span>
-                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -309,9 +308,9 @@ ul {
             <div class="col-xl-4 col-lg-4 mb-50">
                 <div class="footer-widget">
                     <div class="footer-logo">
-                        @foreach ($sitesettings as $sitesetting )
+                      
                         <a href="/"><img src="{{ asset('uploads/sitesetting/' . $sitesetting->side_logo ?? "") }}" class="img-fluid" alt="logo"></a>
-                        @endforeach
+              
                         
                     </div>
                     <div class="footer-text">
@@ -319,8 +318,8 @@ ul {
                     </div>
                     <div class="footer-social-icon">
                         <span>Follow us</span>
-                        <a href="https://www.facebook.com/Khaptad-National-Park-111962848892692/" target="_blank"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                        <a href="https://twitter.com/khaptadnepal"><i class="fab fa-twitter twitter-bg"></i></a>
+                        <a href="{{ $sitesetting->face_link }}" target="_blank"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                        <a href="{{ $sitesetting->twitter }}"><i class="fab fa-twitter twitter-bg"></i></a>
                     </div>
                 </div>
             </div>
