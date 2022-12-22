@@ -1,5 +1,17 @@
 <nav class="navbar navigation-bar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid nav-all " >
+        @if(count(config('app.languages')) > 1)
+                  
+        <a class="">
+            {{ strtoupper(app()->getLocale()) }}
+        </a>
+        <div>
+          @foreach(config('app.languages') as $langLocale => $langName)
+          <a class="" href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }} </a>
+          @endforeach
+        </div>
+  
+        @endif
         <div class="nav-logo-container">
             @foreach ($sitesettings as $sitesetting )
                 
