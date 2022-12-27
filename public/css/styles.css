@@ -2,11 +2,16 @@
 GENERAL STYLING STARTS HERE
 ========================================= */
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
 *, *::before, *::after{
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
+    font-family: 'Mukta', sans-serif;
     
 }
 
@@ -18,10 +23,12 @@ html,body
     padding: 0px;
     overflow-x: hidden; 
 }
-
-.green-color{
+.green_header .green-color{
   color: green;
+  font-size: 14px;
+  margin-right: 20px;
 }
+
 
 /* CHANGING STYLES FOR ADMIN PANEL */
 
@@ -51,18 +58,36 @@ a {
 
 a:hover{
   color: green;
-  transform: scale(1.1);
+  transform: scale(1.02);
   
 }
+
+
+
+
+/* For Language Selector */
+.lang_select{
+  text-align: right;
+}
+.lang_select a{
+  color: black;
+  font-weight: 800;
+  font-size: 14px;
+  transition: 0.2s ease-in-out;
+}
+.lang_select a:hover{
+  color: red;
+}
+
 
 /* =========================================
 INDIVIDUAL STYLING STARTS HERE
 ========================================= */
 .whole-content-container{
   width: 100%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   overflow: none;
-  background: url('../khaptadnpassets/background2.webp');
+  /* background: url('../khaptadnpassets/background2.webp'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -79,7 +104,7 @@ INDIVIDUAL STYLING STARTS HERE
   width: 100%;
   height: 100%;
   z-index: -10;
-  background: url('../khaptadnpassets/background2.webp') no-repeat;
+  /* background: url('../khaptadnpassets/background2.webp') no-repeat; */
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -109,6 +134,7 @@ INDIVIDUAL STYLING STARTS HERE
 
 .navbar .navbar-nav .nav-link{
   transition: all 400ms ease-in;
+  font-size: 18px;
 }
 
 .navbar .navbar-nav .nav-link:hover{
@@ -133,7 +159,7 @@ INDIVIDUAL STYLING STARTS HERE
 
 .nav-logo-container{
   display: flex;
-  font-size: 12px;
+  font-size: 13px;
   align-items: center;
   gap: .5rem;
   margin-right: 1rem;
@@ -182,16 +208,87 @@ INDIVIDUAL STYLING STARTS HERE
 }
 
 
+
+/* For Quick News */
+  
+/* For Quick News */
+.quick_news {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 5px 0 5px 0;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    padding-bottom: 5px;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+  .qn_button{
+      position: absolute;
+      left: 0;
+      padding: 10px;
+      border: 0;
+      background-color: green;
+      z-index: 998;
+      color: #fff;
+      font-weight: 800;
+      font-size: 17px;
+      border-radius: 5px 0 0 5px;
+      margin: 5px 0 5px 0;
+  }
+  
+  .news_slider {
+    height: fit-content;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    border-left: 20px;
+  }
+  .news_slider .news_track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+  .news_slider .news_slide {
+    height: 50px;
+    width: fit-content;
+    margin-right: 30px;
+    justify-content: center;
+  }
+
+.news_slide a{
+      text-decoration: none;
+  }
+.news_slide p{
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    font-family: 'Mukta', sans-serif;
+}
+  
+  
+  
+
+
+
 .main-content-container{
 
-  background-color: white;
+   background: rgba(255,255,255,1);
   height: auto;
-  width: 90%;
+  width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
   margin: 0 auto;
   margin-top: 0px;
-  font-family: 'Roboto', sans-serif;
+
   /* border-radius: 14px;  */
   opacity: 0.85;
   
@@ -276,7 +373,7 @@ INDIVIDUAL STYLING STARTS HERE
   color: green;
   margin-top: 1rem;
   margin-left: 20%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Mukta', sans-serif;
 }
 
 .about-button-container{
@@ -289,7 +386,7 @@ INDIVIDUAL STYLING STARTS HERE
   margin-bottom: 1rem;
   color: green;
   width: auto;
-  border: 1px solid black;
+  border: 0px; 
   background-color: rgb(255, 255, 255);
   padding: 8px;
   border-radius: 8px;
@@ -343,7 +440,7 @@ INDIVIDUAL STYLING STARTS HERE
 
 
 .home-team-container{
-  margin-top: 6rem;
+  margin-top: 1rem;
   width: 20%;
   /* border: 2px solid black; */
   display: flex;
@@ -356,9 +453,9 @@ INDIVIDUAL STYLING STARTS HERE
 .home-team-card{
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 320px;
   text-align: center;
-  box-shadow: rgb(144,238,144) 0px 1px 4px, rgb(67, 100, 51) 0px 0px 0px 3px;
+  /* box-shadow: rgb(144,238,144) 0px 1px 4px, rgb(67, 100, 51) 0px 0px 0px 3px; */
   background-color: rgb(224, 224, 224);
 }
 
@@ -393,6 +490,14 @@ INDIVIDUAL STYLING STARTS HERE
   text-align: center; 
   font-weight: 400; 
   color: green;
+  margin-bottom: .2rem;
+  font-size: 14px;
+
+}
+.home-team-phone{
+  text-align: center; 
+  font-weight: 400; 
+  color: black;
   margin-bottom: .8rem;
   font-size: 14px;
 
@@ -485,7 +590,7 @@ INDIVIDUAL STYLING STARTS HERE
   margin-top: 1rem;
   color: green;
   width: auto;
-  border: 1px solid black;
+  
   border-radius: 8px;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
@@ -511,7 +616,7 @@ INDIVIDUAL STYLING STARTS HERE
   position: relative;
   color: green;
   font-size: 40px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Mukta', sans-serif;
 }
 
 .gallery-title::after{
@@ -603,25 +708,16 @@ div > .gallery-title-container{
 ======================================================= */
 
 #contact {
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   background-color: white;
 }
 
 .contact-box {
-  width: 60%;
-  margin: 80px 50px;
-  display: flex;
-  flex-wrap: wrap;
+ width: 100%;
 }
 
 
-.contact-links, .contact-form-wrapper {
-  width: 50%;
-  
-}
+
 
 .contact-links {
   
@@ -633,8 +729,8 @@ div > .gallery-title-container{
 }
 
 .google-map{
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -777,6 +873,82 @@ div > .gallery-title-container{
 
 
 }
+
+
+
+  /* For Contact Form Section */
+  .contact_form{
+    min-height: 580px;
+  }
+  
+  
+  
+  
+  .cform_left iframe{
+    height: 100%;
+      width: 100%;
+  }
+  
+  
+  
+  /* Form in the right */
+  .cform_right{
+    background: #fff;
+  }
+  
+  .quick_contact{
+    border: 2px solid gray;
+    margin-bottom: 7px;
+  }
+  .quick_contact_title{
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 700;
+    background: #ff5e14;
+    padding: 6px;
+    text-align:center;
+    color: white;
+  }
+  #quick_contact .form-control, 
+  #quick_contact textarea {
+  width: 100%;
+  margin-bottom: 5px;
+  color: #333;
+  letter-spacing: 1px;
+  border: 0 0 2px 0;
+  }
+  
+  #quick_contact  .send-button {
+  margin-top: 15px;
+  height: 34px;
+  width: 200px;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
+  background-color: green;
+  margin-top: 2rem;
+  border: none;
+  }
+  
+  #quick_contact .alt-send-button {
+  width: 100%;
+  height: 34px;
+  transition: all .2s ease-in-out;
+  color: white;
+  
+  }
+  
+  #quick_contact .send-text {
+  display: block;
+  margin-top: 10px;
+  font: 700 12px 'Lato', sans-serif;
+  letter-spacing: 2px;
+  color: white;
+  
+  }
+  
+  #quick_contact .alt-send-button:hover {
+  transform: translate3d(0px, -28px, 0px);
+  }
 
 
 /* =======================================================

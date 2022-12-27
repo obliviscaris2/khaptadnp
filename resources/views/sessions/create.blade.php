@@ -54,7 +54,16 @@
 
         .login-btn{
             width: 80px;
-            height: 30px;
+            padding: 5px;
+            background: white;
+            color: green;
+            transition: 0.2s ease-in-out;
+            border: none;
+            border-radius: 5px;
+        }
+        .login-btn:hover{
+            color: #fff;
+            background: green;
         }
     </style>
 </head>
@@ -78,10 +87,10 @@
                     <input type="password" class="form-control" id="password" name="password" placeholder='***'>
                     </div>
                     <div class='d-flex justify-content-evenly'>
-                        <input type="submit" class="login-btn about-readmore-btn " value='Login'>
+                        <input type="submit" class="login-btn" value='Login'>
                         
                         <a href="{{ route('home') }}">
-                            <input type="button" class="login-btn about-readmore-btn" value='Home'>
+                            <input type="button" class="login-btn" value='Home'>
                         </a>
                     </div>
                 </form>

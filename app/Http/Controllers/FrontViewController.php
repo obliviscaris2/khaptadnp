@@ -6,13 +6,14 @@ use App\Models\News;
 use App\Models\Post;
 use App\Models\Team;
 use App\Models\About;
+use App\Models\Policy;
+use App\Models\Report;
+use App\Models\Urlink;
 use App\Models\Gallery;
+use App\Models\Program;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\CoverImage;
-use App\Models\Policy;
-use App\Models\Program;
-use App\Models\Report;
 use App\Models\Sitesetting;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class FrontViewController extends Controller
 {
     public function index(){
 
-        $sitesetting = Sitesetting::first();
+        $sitesettings = Sitesetting::latest()->get()->take(1);
         $categories = Category::latest()->get()->take(10);
         $coverimages = CoverImage::latest()->get()->take(5);
         $photogallerys = Gallery::latest()->get()->take(6);
@@ -40,6 +41,8 @@ class FrontViewController extends Controller
         $reports= Report::latest()->get()->take(6);
         $programs = Program::latest()->get()->take(5);
         $policies = Policy::latest()->get()->take(5);
+        $urlinks = Urlink::latest()->get()->take(6);
+
         
     
     
@@ -54,13 +57,13 @@ class FrontViewController extends Controller
             'posts'=>$posts,
             'abouts'=>$abouts,
             'services'=>$services,
-            'sitesetting'=>$sitesetting,
+            'sitesettings'=>$sitesettings,
             'news' => $news,
             'teams' => $teams,
             'reports' => $reports,
             'programs' => $programs,
             'policies' => $policies,
-
+            'urlinks' => $urlinks,
         ]);
     }
 }

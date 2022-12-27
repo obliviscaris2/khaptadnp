@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="self-publication-container">
-    <h1 class="team-title">Our Team</h1>
+    <h1 class="team-title">{{ __('Teams') }}</h1>
     <div class="team-container">
     
         @foreach ($teams as $team)

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\About;
+use App\Models\BlogPost;
 use App\Models\Publication;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -12,19 +13,19 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SingleController;
+use App\Http\Controllers\UrlinkController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CoverImageController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\SitesettingController;
 use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserFeedbackController;
-use App\Models\BlogPost;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,16 @@ Route::post("admin/categories/store", [CategoryController::class, 'store'])->nam
 Route::get("admin/categories/edit/{id}", [CategoryController::class, 'edit'])->name('categories.edit');
 Route::post("admin/categories/update", [CategoryController::class, 'update'])->name('categories.update');
 Route::get("admin/categories/destroy/{id}", [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+
+// ROUTES FOR Important Links
+
+Route::get("admin/urlink/index", [UrlinkController::class, 'index'])->name('urlink.index');
+Route::get("admin/urlink/create", [UrlinkController::class, 'create'])->name('urlink.create');
+Route::post("admin/urlink/store", [UrlinkController::class, 'store'])->name('urlink.store');
+Route::get("admin/urlink/edit/{id}", [UrlinkController::class, 'edit'])->name('urlink.edit');
+Route::post("admin/urlink/update", [UrlinkController::class, 'update'])->name('urlink.update');
+Route::get("admin/urlink/destroy/{id}", [UrlinkController::class, 'destroy'])->name('urlink.destroy');
 
 
 // ROUTES FOR ADMIN SITESETTINGS

@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class UserSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +16,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // User::create([
-        //     'name' => 'khaptad',
-        //     'email' => 'khaptadnationalp@gmail.com',
-        //     'password' => '$2a$12$qggoaVIKfqD6P13qklY9N.rBtS9nWsZ72emxQpq5qQ0jHhNusktb6
-        //     ',
-        // ]);
+        User::create([
+            'name' => 'khaptad',
+            'email' => 'khaptadnationalp@gmail.com',
+            'password' => Hash::make('Admin@123')
+        ]);
     }
 }

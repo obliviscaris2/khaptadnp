@@ -107,7 +107,7 @@ class SitesettingController extends Controller
      * @param  \App\Models\Sitesetting  $sitesetting
      * @return \Illuminate\Http\Response
      */
-    public function edit($id='1')
+    public function edit($id)
     {
         $sitesetting = Sitesetting::find($id);
         return view('admin.sitesettings.update', [
@@ -181,7 +181,7 @@ class SitesettingController extends Controller
 
         $sitesetting->save();
 
-        return redirect(route('sitesettings.update'));
+        return redirect(route('sitesettings.index'));
     }
 
     /**

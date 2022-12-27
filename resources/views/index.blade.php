@@ -53,18 +53,19 @@
 
         <div class="home-about-container">
             
-            @foreach ($abouts as $about)
+
             <div class="home-description-container">
-                <h2 class="home-about-title">{{ $about->title }}</h2>
+                <h2 class="home-about-title">{{ __($about->title) }}</h2>
                 <p class="home-about-para">
                 
-                    {!! $about->content  !!}
+                    {!! Str::substr($about->content, 0, 2200) !!}...
+                    {{-- {!! $about->content  !!} --}}
                  </p>
-                @endforeach
+       
 
                 <div class="about-button-container">
                     <a href="{{ route('introduction') }}">
-                        <button class="about-readmore-btn">Read More</button>
+                        <button class="about-readmore-btn">{{ __('Read More') }}</button>
                     </a>  
                 </div>
                 <div class="map-container">
@@ -81,6 +82,7 @@
                     <img class="home-team-image" src="{{ asset('uploads/team/' . $team->image) }}" alt="team image">
                     <span class="home-team-name">{{ $team->name }}</span>
                     <span class="home-team-position">{{ $team->position }}</span>
+                    <span class="home-team-number">{{ $team->contact_number }}</span>
                 </div>
                 @endforeach
             </div>
@@ -102,7 +104,7 @@
 
         <div class="news-section-container">
             <div class="single-container">
-                <h3 class="news-title">News</h3>
+                <h3 class="news-title">{{ __('News') }}</h3>
                 @foreach ($news as $new )
                 <h5 class="news-section-title">{{$new->title}}</h5>
                 <p class="news-description">{!! Str::substr($new->description, 0, 40) !!}...<a class="green-color" href="{{ route('news') }}">See more</a> </p>
@@ -110,14 +112,14 @@
                 @endforeach
                 <div class="button-container">
                     <a href="{{route('news')}}">
-                        <button class="btn">Read More</button>
+                        <button class="btn">{{ __('Read More') }}</button>
                     </a>
                 </div>
 
             </div>
 
             <div class="single-container">
-                <h3 class="reports-title news-title">Reports</h3>
+                <h3 class="reports-title news-title">{{ __('Reports') }}</h3>
                 @foreach ($reports as $report )
                 <h5 class="news-section-title">{{$report->title}}</h5>
                 <div>
@@ -131,14 +133,14 @@
                 @endforeach
                 <div class="button-container">
                     <a href="{{route('reports')}}">
-                        <button class="btn">Read More</button>
+                        <button class="btn">{{ __('Read More') }}</button>
                     </a>
                 </div>
 
             </div>
 
             <div class="single-container">
-                <h3 class="publication-title news-title">Publications</h3>
+                <h3 class="publication-title news-title">{{ __('Publication') }}</h3>
                 @foreach ($publications as $publication )
                 <h5 class="news-section-title">{{ $publication->title }}</h5>
                 <div>
@@ -152,7 +154,7 @@
                 @endforeach
                 <div class="button-container">
                     <a href="{{route('publications')}}">
-                        <button class="btn">Read More</button>
+                        <button class="btn">{{ __('Read More') }}</button>
                     </a>
                 </div>
 
@@ -172,7 +174,7 @@
 
     ==================================================================== --}}
 
-        <h2 class="gallery-title">Gallery</h2>
+        <h2 class="gallery-title">{{ __('Gallery') }}</h2>
 
                 <div class="home-gallery-container">
                     @foreach ($galleries as $gallery )
@@ -206,7 +208,7 @@
                 <div class="news-section-container blogpost-section-container">
 
                     <div class="single-container">
-                        <h2 class="gallery-title blog-title">Blog Posts</h2>
+                        <h2 class="gallery-title blog-title">{{ __('Blogs') }}</h2>
                         @foreach ($blogs as $blog )
                         <h4 style="color: black">{{$blog->title}}</h4>
                         <p style="color: green"><span style="color: black;">By: </span> {{ $blog->author }}</p>
@@ -216,7 +218,7 @@
                         @endforeach
                         <div class="button-container">
                             <a href="{{ route('blog') }}">
-                                <button class="blog-btn btn">Read More</button> 
+                                <button class="blog-btn btn">{{ __('Read More') }}</button> 
                             </a>  
                         </div>
     
@@ -234,7 +236,7 @@
            CONTACT SECTION CONTENTS STARTS HERE
 
     ==================================================================== --}}
-                <h2 class="gallery-title home-contact-title"> Contact Us</h1>
+                {{-- <h2 class="gallery-title home-contact-title">{{ __('Contact') }}</h1>
                 <section id="contact">
 
                     <div class="contact-box">
@@ -248,19 +250,19 @@
                         <form action="{{ route('userfeedback.homestore') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                           <div class="form-item">
-                            <input type="text"  name="name" placeholder="Name:" required>
+                            <input type="text"  name="name" placeholder="Name" required>
                             <label></label>
                           </div>
                           <div class="form-item">
-                            <input type="text" placeholder="Email:" name="email" required>
+                            <input type="text" placeholder="Email" name="email" required>
                             <label></label>
                           </div>
                           <div class="form-item">
-                            <input type="text" name="phone" placeholder="Phone:" required>
+                            <input type="text" name="phone" placeholder="Phone" required>
                             <label></label>
                           </div>
                           <div class="form-item">
-                            <textarea class="" name="message" placeholder="Message:" required></textarea>
+                            <textarea class="" name="message" placeholder="Message" required></textarea>
                             <label></label>
                           </div>
                           <div class="captcha">
@@ -272,7 +274,11 @@
                         </form>
                       </div>
                     </div>
-                  </section>
+                  </section> --}}
+
+
+
+                  @include('includes/contacts')
     {{-- ====================================================================
 
            CONTACT SECTION CONTENTS ENDS HERE

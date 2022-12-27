@@ -2,20 +2,70 @@
 
 @section('content')
 
-{{-- <div class="self-contact-container">
-    @foreach ($contacts as $contact)
-                <i class="fa-solid fa-phone" style="margin-right: 4px"></i><p> {{ $contact->phone }}</p>
-                
-                <i class="fa-solid fa-envelope" style="margin-right: 4px"></i><p>{{ $contact->email }}</p>
-    @endforeach
-</div> --}}
-<h3 class="self-publication-title">Contact Us</h3>
 
-<section id="contact">
+
+
+<h3 class="self-publication-title">{{ __('Contact') }}</h3>
+
+<section class="contact_form wid_mar">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 cform_left">
+              <iframe src="{{ $sitesetting->google_maps }}" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+
+          <div class="col-md-6 cform_right">
+              <form id="quick_contact" class="form-horizontal" method="POST" role="form" action="{{ route('userfeedback.homestore') }}">
+                  @csrf
+                  <div class="form-group">
+
+                      <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value=""
+                          required>
+
+                  </div>
+
+                  <div class="form-group">
+
+                      <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email"
+                          value="" required>
+
+                  </div>
+
+                  <div class="form-group">
+
+
+                      <input type="phone" name="phone" class="form-control" id="phone" placeholder="Phone No."
+                          required>
+
+
+                  </div>
+
+                  <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message"
+                      required></textarea>
+
+                      <div class="captcha">
+                        {!! NoCaptcha::renderJs() !!}
+                        {!! NoCaptcha::display() !!}
+                      </div>
+
+                  <button class="send-button" id="submit" type="submit" value="SEND">
+                      <div class="alt-send-button">
+                          <i class="fa fa-paper-plane"></i><span class="send-text">{{ __('Lets Connect') }}</span>
+                      </div>
+
+                  </button>
+
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+{{-- <section id="contact">
     <div class="contact-box">
       <div class="contact-links left-card-container">
-        {{-- <h1 class="header_page_title"> Contact Us</h1>
-         --}}
+      
          @foreach ($contacts as $contact)
           <div class="contact-left-card">
             <div id="googleMap" class="google-map">
@@ -53,6 +103,6 @@
         </form>
       </div>
     </div>
-  </section>
+  </section> --}}
 
 @endsection

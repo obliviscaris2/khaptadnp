@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="self-publication-container">
-    <h3 class="self-publication-title">Blog Posts</h3>
+    <h3 class="self-publication-title">{{ __('Blogs') }}</h3>
 
     <div class="all-posts-container">
         @foreach ($blogPosts as $blogPost )

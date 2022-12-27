@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="self-publication-container">
-    <h3 class="self-publication-title">Policies & Acts</h3>
+    <h3 class="self-publication-title">{{ __('Policies/Acts') }}</h3>
 
     <div class="all-policies-container">
         @foreach ($policies as $policy)

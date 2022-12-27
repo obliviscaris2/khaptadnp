@@ -2,90 +2,119 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BlogPost;
+use App\Models\News;
+use App\Models\Team;
+use App\Models\About;
+use App\Models\Policy;
+use App\Models\Report;
+use App\Models\Urlink;
 use App\Models\Contact;
 use App\Models\Gallery;
-use App\Models\News;
-use App\Models\Policy;
 use App\Models\Program;
+use App\Models\BlogPost;
 use App\Models\Publication;
-use App\Models\Report;
 use App\Models\Sitesetting;
-use App\Models\Team;
 use Illuminate\Http\Request;
 
 class SingleController extends Controller
 {
     public function renderIntroduction () 
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::all();
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
 
         return view('introduction', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]);
     }
 
     public function renderServices ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::all();
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('services', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]); 
     }
 
     public function renderTeam ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::all();
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
         $teams = Team::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('team', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
             "teams"  => $teams,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
         ]); 
     }
 
 
     public function renderReports ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::all();
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('reports', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]); 
     }
@@ -93,18 +122,25 @@ class SingleController extends Controller
 
     public function renderPolicies ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::latest()->get()->take(2);
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('policies', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]); 
     }
@@ -112,137 +148,187 @@ class SingleController extends Controller
 
     public function renderPrograms ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::latest()->get()->take(2);
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('programs', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]); 
     }
 
     public function renderNews ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::latest()->get()->take(2);
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
         $news = News::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('news', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
-            "news" => $news
+            "news" => $news,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
         ]); 
     }
 
 
     public function renderBlog ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::latest()->get()->take(2);
         $policies = Policy::latest()->get()->take(3);
         $programs = Program::latest()->get()->take(3);
         $reports = Report::latest()->get()->take(3);
         $blogPosts = BlogPost::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('blog', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
             "blogPosts" => $blogPosts,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
         ]); 
     }
 
     public function singleBlogPost($id) {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
+        $about = About::first();
         $contacts = Contact::latest()->get()->take(2);
         $policies = Policy::latest()->get()->take(3);
         $programs = Program::latest()->get()->take(3);
         $reports = Report::latest()->get()->take(3);
         $publications = Publication::all();
         $blogPost = BlogPost::find($id);
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
         return view('singlePost', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
             "blogPost" => $blogPost,
-            "publications" => $publications
+            "publications" => $publications,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
         ]);
     }
 
 
     public function renderGallery ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::all();
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
         $galleries = Gallery::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
+
 
         return view('gallery', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
             "galleries" => $galleries,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]); 
     }
 
     public function renderContact ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::latest()->get()->take(2);
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
         $teams = Team::latest()->get()->take(2);
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+
 
         return view('contact', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
             "teams" => $teams,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]); 
     }
 
     public function renderPublications ()
     {
-        $sitesettings = Sitesetting::all();
+        $sitesetting = Sitesetting::first();
         $contacts = Contact::all();
         $policies = Policy::all();
         $programs = Program::all();
         $reports = Report::all();
         $publications = Publication::all();
+        $about = About::first();
+        $urlinks = Urlink::latest()->get()->take(6);
+        $newsnav = News::latest()->get()->take(10);
+        
+
 
         return view('publications', [
-            "sitesettings" => $sitesettings,
+            "sitesetting" => $sitesetting,
             "contacts" => $contacts,
             "policies" => $policies,
             "programs" => $programs,
             "reports" => $reports,
             "publications" => $publications,
+            "about" => $about,
+            "urlinks" => $urlinks,
+            "newsnav" => $newsnav,
 
         ]); 
     }

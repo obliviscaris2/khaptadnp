@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="self-publication-container">
-    <h3 class="self-publication-title">Our Gallery</h3>
+    <h3 class="self-publication-title">{{ __('Photo Gallery') }}</h3>
     <div class="gallery-images-container">
         @foreach ($galleries as $gallery )
         <figure>
