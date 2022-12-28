@@ -12,7 +12,7 @@
 
 </span>
 
-<nav class="navbar navigation-bar navbar-expand-lg navbar-light fixed-top">
+<nav class="navbar navigation-bar navbar-expand-lg navbar-light">
     <div class="container-fluid nav-all " >
       
        
@@ -39,7 +39,9 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item ">
-                    <a class="nav-link text-success" aria-current="page" href="{{ route('home') }}"><i class="fa-solid fa-house-chimney" aria-current="page"></i></a>
+                    <a class="nav-link text-success" aria-current="page" href="{{ route('home') }}">
+                    
+                        <i class="fa-solid fa-house-chimney" aria-current="page"></i></a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -65,19 +67,11 @@
                         <li><a class="dropdown-item text-success" href="{{ route('news') }}">{{ __('News') }}</a></li>
                     </ul>
                 </li>
-{{-- 
-                <li class="nav-item">
-                    <a class="nav-link text-success" href="{{ route('reports') }}">Reports</a>
-                </li> --}}
+
                 <li class="nav-item">
                     <a class="nav-link text-success" href="{{ route('policies') }}">{{ __('Policies/Acts') }}</a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link text-success" href="{{ route('programs') }}">Programs</a>
-                </li> --}}
-                {{-- <li class="nav-item">
-                    <a class="nav-link text-success" href="{{ route('news') }}">News</a>
-                </li> --}}
+               
                 <li class="nav-item">
                     <a class="nav-link text-success" href="{{ route('blog') }}">{{ __('Blogs') }}</a>
                 </li>
@@ -110,7 +104,7 @@
                  
               
                 <div class="news_slide">
-                    <a href="">
+                    <a href="{{ route('news') }}">
 
                     <p>
                                
@@ -131,3 +125,5 @@
         </div>
     </div>
 </section>
+
+

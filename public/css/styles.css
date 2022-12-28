@@ -11,7 +11,7 @@ GENERAL STYLING STARTS HERE
     padding: 0;
     text-decoration: none;
     list-style: none;
-    font-family: 'Mukta', sans-serif;
+   
     
 }
 
@@ -23,10 +23,15 @@ html,body
     padding: 0px;
     overflow-x: hidden; 
 }
+.green_header{
+  margin-right: 20px;
+}
 .green_header .green-color{
   color: green;
   font-size: 14px;
   margin-right: 20px;
+  font-family: 'Mukta', sans-serif;
+
 }
 
 
@@ -42,18 +47,22 @@ label{
 }
 
 h2 {
-  font-family: 'Arimo', sans-serif;
+
   color: black;
   font-size: clamp(30px, 6vw, 60px);
   letter-spacing: 2px;
   text-align: center;
   transform: scale(.95, 1);
 }
+p, h1, h2, h3, h4, h5, h6{
+  font-family: 'Mukta', sans-serif;
+}
 
 a {
   color: black;
   text-decoration: none;
   transition: all 600ms ease-in;
+  font-family: 'Mukta', sans-serif;
 }
 
 a:hover{
@@ -74,6 +83,7 @@ a:hover{
   font-weight: 800;
   font-size: 14px;
   transition: 0.2s ease-in-out;
+  margin-right: 5px;
 }
 .lang_select a:hover{
   color: red;
@@ -126,7 +136,11 @@ INDIVIDUAL STYLING STARTS HERE
   position: relative;
   z-index: 9999;
 }
+/* .navbar{
+  position: sticky;
+  top: 0;
 
+} */
 .navbar-nav{
   display: flex;
   gap: 2rem;
@@ -135,20 +149,22 @@ INDIVIDUAL STYLING STARTS HERE
 .navbar .navbar-nav .nav-link{
   transition: all 400ms ease-in;
   font-size: 18px;
+  font-family: 'Mukta', sans-serif;
 }
 
 .navbar .navbar-nav .nav-link:hover{
-  color: black !important;
+  color: green !important;
+  font-weight: 700;
   transform: scale(1.1);
 }
 
 .active{
-  color: black !important;
+  color: green !important;
   font-weight: 750;
 }
 
 .nav-link[aria-current="page"]{
-  color: black !important;
+  color: green !important;
   font-weight: 750;
 }
 
@@ -241,6 +257,7 @@ INDIVIDUAL STYLING STARTS HERE
       font-size: 17px;
       border-radius: 5px 0 0 5px;
       margin: 5px 0 5px 0;
+      font-family: 'Mukta', sans-serif;
   }
   
   .news_slider {
@@ -976,6 +993,11 @@ div > .gallery-title-container{
     padding-right: 2%;
   }
 
+  .navbar{
+    position: sticky;
+    top: 0;
+  }
+
   .nav-logo-container{
     margin-left: 0%;
     font-size: 8px;
@@ -1023,7 +1045,8 @@ div > .gallery-title-container{
     height: 40px;
     width: 35px;
     padding: 0;
-    
+   
+ 
   }
 
 
